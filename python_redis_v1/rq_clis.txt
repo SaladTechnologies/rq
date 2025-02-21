@@ -1,0 +1,22 @@
+
+redis-cli
+
+flushdb
+
+keys *
+
+lrange clients 0 -1
+lrange server 0 -1
+
+zrange requests:pending 0 -1 WITHSCORES
+lrange requests:completed 0 -1
+lrange requests:failed 0 -1
+
+zrange request__index 0 -1 WITHSCORES
+hgetall request_%&_c01_r0001
+hgetall request_%&_c01_r0002
+
+lrange c01_r0001 0 -1
+lrange c01_r0002 0 -1
+
+
